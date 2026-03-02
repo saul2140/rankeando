@@ -1,0 +1,27 @@
+.jugadores-box {
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.jugador-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin: 15px 0;
+  background: #1f1f1f;
+  padding: 15px;
+  border-radius: 10px;
+  color: white;
+}
+
+img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}

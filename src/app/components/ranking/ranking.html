@@ -1,0 +1,17 @@
+<div class="jugadores-box">
+  <h2>Ranking Rainbow Six Siege</h2>
+
+  <ul>
+    @for(jugador of rankingOrdenado; track jugador.nombre) {
+      <li class="jugador-card">
+        <img [src]="jugador.foto" [alt]="jugador.nombre">
+        <div>
+          <h3>{{ jugador.nombre }}</h3>
+          <p>Puntos: {{ jugador.puntos }}</p>
+        </div>
+      </li>
+    }
+  </ul>
+
+  <button routerLink="/">Volver al inicio</button>
+</div>
