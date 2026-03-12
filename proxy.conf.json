@@ -1,0 +1,10 @@
+{
+  "/proxy": {
+    "target": "https://api.r6data.eu",
+    "changeOrigin": true,
+    "secure": true,
+    "pathRewrite": {
+      "^/proxy": ""
+    }
+  }
+}

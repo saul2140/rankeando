@@ -1,0 +1,58 @@
+.personajes-container {
+  padding: 2rem;
+}
+
+.personajes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.personaje-card {
+  background: #1e1e2e;
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.personaje-card img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+}
+
+.personaje-card h2 {
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+  color: #f0a500;
+}
+
+.personaje-card p {
+  font-size: 0.85rem;
+  margin: 0.2rem 0;
+  color: #ccc;
+}
+
+.error {
+  color: red;
+}
+
+.cargando {
+  font-size: 1.2rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+button {
+  margin: 30px 30px 30px auto;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  background: #2563eb;
+  color: white;
+  cursor: pointer;
+  display: block;
+}

@@ -22,12 +22,12 @@ export class App {
       nombre: 'Saúl',
       email: '',
       age: 20,
-      itsAdmin: false
+      itsAdmin: false,
     };
     this.post = {
       id: 1,
       content: 'Hola, este es mi primer post',
-      user: this.usuario
+      user: this.usuario,
     };
     console.log(this.usuario);
   }

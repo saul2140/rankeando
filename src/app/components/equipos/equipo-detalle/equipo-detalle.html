@@ -1,0 +1,18 @@
+@if (equipo) {
+  <div class="equipo">
+    <h1>{{ equipo.name }}</h1>
+    <img [src]="equipo.logo_url" alt="equipo.name">
+
+    <h2>Jugadores Titulares</h2>
+    <ul>
+      @for (jugador of equipo.players; track jugador.id) {
+        <li>
+          <img [src]="'assets/equipos/jugadores/' + jugador.nickname.toLowerCase() + '.png'" alt="jugador.nickname">
+          {{ jugador.nickname }} - {{ jugador.role }}
+        </li>
+      }
+    </ul>
+
+    <button routerLink="/equipos">Volver</button>
+  </div>
+}
