@@ -1,0 +1,29 @@
+<div class="mapas-container">
+  <div class="header">
+    <h1>MAPAS</h1>
+    <p>Explora todos los mapas de Rainbow Six Siege</p>
+  </div>
+
+  @if (cargando()) {
+    <div class="cargando">Cargando...</div>
+  }
+
+  @if (error()) {
+    <div class="error">{{ error() }}</div>
+  }
+
+  @if (!cargando() && !error()) {
+    <div class="mapas-grid">
+      @for (mapa of mapas(); track mapa.name) {
+        <a [routerLink]="['/mapas', mapa.name]" class="mapa-card">
+          <img [src]="'assets/mapas/' + mapa.name.toLowerCase() + '.png'" alt="mapa.name">
+          <h2>{{ mapa.name }}</h2>
+        </a>
+      }
+    </div>
+  }
+
+<a href="../jugadores/jugadores.html">
+<button routerLink="/">Volver al inicio</button>
+</a>
+</div>
