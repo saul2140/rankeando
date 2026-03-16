@@ -1,0 +1,12 @@
+@if (jugador) {
+  <div class="jugador-detalle">
+    <h1>{{ jugador.nickname }}</h1>
+    <ul>
+      <li><strong>País:</strong> {{ jugador.country ?? '—' }}</li>
+      <li><strong>MMR:</strong> {{ jugador.mmr }}</li>
+      <li><strong>Partidas:</strong> {{ jugador.matches_played }}</li>
+      <li><strong>K/D:</strong> {{ jugador.kd }}</li>
+    </ul>
+    <button routerLink="/ranking">Volver</button>
+  </div>
+}

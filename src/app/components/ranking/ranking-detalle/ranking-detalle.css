@@ -1,0 +1,60 @@
+:host {
+  display: block;
+  margin: -8px;
+  background-color: #0f0f1a;
+  min-height: 100vh;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.jugador-detalle {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.jugador-detalle h1 {
+  color: #e2e8f0;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  border-left: 4px solid #2563eb;
+  padding-left: 0.75rem;
+}
+
+.jugador-detalle ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.jugador-detalle li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  background-color: #1e1e2e;
+  border-radius: 8px;
+  color: #cbd5e1;
+  font-size: 0.95rem;
+}
+
+.jugador-detalle li strong {
+  color: #2563eb;
+}
+
+button {
+  margin: 30px 30px 30px auto;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  background: #2563eb;
+  color: white;
+  cursor: pointer;
+  display: block;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background: #1d4ed8;
+}

@@ -28,3 +28,27 @@ app.get('/api/teams', async (req, res) => {
 });
 
 app.listen(3000, () => console.log('Servidor escuchando en http://localhost:3000'));
+
+
+// Obtener todo el ranking
+app.get('/api/ranking', async (req, res) => {
+  try {
+    const [ranking] = await db.query('SELECT * FROM ranking ORDER BY mmr DESC');
+    res.json(ranking);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Error al obtener ranking' });
+  }
+});
+
+// Obtener un jugador por id
+app.get('/api/ranking/:id', async (req, res) => {
+  try {
+    const [rows] = await db.query('SELECT * FROM ranking WHERE id = ?', [req.params.id]);
+    if (rows.length === 0) return res.status(404).json({ error: 'Jugador no encontrado' });
+    res.json(rows[0]);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Error al obtener jugador' });
+  }
+});

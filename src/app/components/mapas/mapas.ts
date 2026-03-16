@@ -31,6 +31,7 @@ export class Mapas implements OnInit {
         this.cargando.set(false);
       },
       error: (err) => {
+        console.error('Body:', err.error);
         this.error.set('Error al cargar');
         this.cargando.set(false);
       },

@@ -1,40 +1,26 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-
-interface Jugador {
-  nombre: string;
-  puntos: number;
-  foto: string;
-}
+import { RankingService, Jugador } from '../../services/ranking';
 
 @Component({
   selector: 'app-ranking',
   standalone: true,
   imports: [CommonModule, RouterModule],
   templateUrl: './ranking.html',
-  styleUrl: './ranking.css',
+  styleUrls: ['./ranking.css'],
 })
-export class Ranking {
-  jugadores: Jugador[] = [
-    {
-      nombre: 'Beaulo',
-      puntos: 2500,
-      foto: 'https://liquipedia.net/commons/images/thumb/Beaulo.jpg/200px-Beaulo.jpg',
-    },
-    {
-      nombre: 'Shaiiko',
-      puntos: 2400,
-      foto: 'https://liquipedia.net/commons/images/thumb/Shaiiko.jpg/200px-Shaiiko.jpg',
-    },
-    {
-      nombre: 'Pengu',
-      puntos: 2300,
-      foto: 'https://liquipedia.net/commons/images/thumb/Pengu.jpg/200px-Pengu.jpg',
-    },
-  ];
+export class Ranking implements OnInit {
+  private rankingService = inject(RankingService);
+  private cdr = inject(ChangeDetectorRef);
 
-  get rankingOrdenado() {
-    return [...this.jugadores].sort((a, b) => b.puntos - a.puntos);
+  jugadores: Jugador[] = [];
+
+  ngOnInit(): void {
+    this.rankingService.getRanking().subscribe((data) => {
+      console.log('Datos recibidos:', data);
+      this.jugadores = data;
+      this.cdr.detectChanges();
+    });
   }
 }

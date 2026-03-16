@@ -16,7 +16,7 @@
     <div class="mapas-grid">
       @for (mapa of mapas(); track mapa.name) {
         <a [routerLink]="['/mapas', mapa.name]" class="mapa-card">
-          <img [src]="'assets/mapas/' + mapa.name.toLowerCase() + '.png'" alt="mapa.name">
+          <img [src]="'/assets/mapas/' + mapa.name.toLowerCase().replace(' ', '_') + '.png'" alt="mapa.name">
           <h2>{{ mapa.name }}</h2>
         </a>
       }
