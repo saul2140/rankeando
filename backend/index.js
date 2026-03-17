@@ -6,20 +6,15 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Obtener todos los equipos con jugadores
+// Equipos
 app.get('/api/teams', async (req, res) => {
   try {
     const [teams] = await db.query('SELECT * FROM teams');
     const [players] = await db.query('SELECT * FROM players');
-
-    // Agrupar jugadores por equipo
-    const result = teams.map((team) => {
-      return {
-        ...team,
-        players: players.filter((p) => p.team_id === team.id),
-      };
-    });
-
+    const result = teams.map((team) => ({
+      ...team,
+      players: players.filter((p) => p.team_id === team.id),
+    }));
     res.json(result);
   } catch (err) {
     console.error(err);
@@ -27,10 +22,7 @@ app.get('/api/teams', async (req, res) => {
   }
 });
 
-app.listen(3000, () => console.log('Servidor escuchando en http://localhost:3000'));
-
-
-// Obtener todo el ranking
+// Ranking
 app.get('/api/ranking', async (req, res) => {
   try {
     const [ranking] = await db.query('SELECT * FROM ranking ORDER BY mmr DESC');
@@ -41,7 +33,7 @@ app.get('/api/ranking', async (req, res) => {
   }
 });
 
-// Obtener un jugador por id
+// Jugador por id
 app.get('/api/ranking/:id', async (req, res) => {
   try {
     const [rows] = await db.query('SELECT * FROM ranking WHERE id = ?', [req.params.id]);
@@ -52,3 +44,5 @@ app.get('/api/ranking/:id', async (req, res) => {
     res.status(500).json({ error: 'Error al obtener jugador' });
   }
 });
+
+app.listen(3000, () => console.log('Servidor escuchando en http://localhost:3000')); // 👈 siempre al final
